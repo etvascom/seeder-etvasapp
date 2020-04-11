@@ -1,0 +1,14 @@
+{
+  "name": "etvasapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "concurrently --kill-others-on-fail \"cd server && npm run start\" \"cd client && npm run start\"",
+    "bootstrap:client": "cd client && npm install && cd ..",
+    "bootstrap:server": "cd server && npm install && cd ..",
+    "bootstrap": "npm run bootstrap:client && npm run bootstrap:server"
+  },
+  "devDependencies": {
+    "concurrently": "^5.1.0"
+  }
+}
