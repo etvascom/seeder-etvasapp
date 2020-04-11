@@ -4,8 +4,6 @@ const cors = require('cors')
 const routes = require('./routes')
 const proxy = require('./routes/utils/proxy')
 
-require('./boot')
-
 const app = express()
 const port = process.env.PORT || 5000
 

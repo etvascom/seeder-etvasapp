@@ -1,3 +1,5 @@
+const { verifyApiKey, validatePurchaseParameters } = require('./middleware')
+
 module.exports = {
   method: 'post',
   url: '/purchase',
