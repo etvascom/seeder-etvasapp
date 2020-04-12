@@ -17,6 +17,7 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     width: 100%;
     background-color: ${themeGet('colors.bodyBg')};
+    color: ${themeGet('colors.text')};
   }
 
   body.no-scroll {
@@ -28,20 +29,12 @@ export const GlobalStyle = createGlobalStyle`
       monospace;
   }
 
-  .route-link:not(.underlined) {
-    text-decoration: none;
-  }
-
-  .route-link:active, .route-link:hover:not(:disabled) {
-    opacity: 0.75;
-  }
-
   * {
     box-sizing: border-box;
   }
 
   :root {
-    --themed-brand-color: #336699;
-    --themed-accent-color: #ef6319;
+    --themed-brand-color: #015294;
+    --themed-accent-color: #EF6319;
   }
 `

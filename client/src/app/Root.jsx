@@ -5,8 +5,8 @@ import { buildTheme } from '@kogaio/utils'
 import appTheme from '@assets/theme'
 import { GlobalStyle } from '@assets/GlobalStyle'
 import Router from './navigation/Router'
-import NavBar from './navigation/NavBar'
-import Provider from './services/Provider'
+import ApiProvider from './services/ApiProvider'
+import NavProvider from './navigation/NavProvider'
 import { AuthorizingOrUnauthorized } from './components'
 
 const client = require('./services/client')
@@ -47,11 +47,12 @@ const Root = () => {
       {loading || !isAuthorized ? (
         <AuthorizingOrUnauthorized loading={loading} />
       ) : (
-        <Provider>
-          <GlobalStyle />
-          <NavBar />
-          <Router />
-        </Provider>
+        <ApiProvider>
+          <NavProvider>
+            <GlobalStyle />
+            <Router />
+          </NavProvider>
+        </ApiProvider>
       )}
     </ThemeProvider>
   )

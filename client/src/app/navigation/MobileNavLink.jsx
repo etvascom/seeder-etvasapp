@@ -1,7 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Link } from '@reach/router'
 import { Typography, Icon } from '@kogaio'
 import { themed } from '@kogaio/utils'
 
@@ -14,10 +13,10 @@ const MobileNavLink = ({ iconName, title, ...props }) => (
 
 MobileNavLink.propTypes = {
   iconName: PropTypes.string,
-  title: PropTypes.string
+  title: PropTypes.string,
 }
 
-const MobileLink = styled(Link)`
+const MobileLink = styled.a`
   ${themed('NavBar.mobileTab')};
 `
 

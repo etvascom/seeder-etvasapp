@@ -1,55 +1,50 @@
 import React from 'react'
-import styled from 'styled-components'
-import { Box, Typography } from '@kogaio'
-import { themed } from '@kogaio/utils'
-
+import { Typography, Button } from '@kogaio'
+import NavBar from '../../navigation/NavBar'
+import { Panel } from '@shared/components'
 import { trans } from '@shared/i18n'
 
-const SupportScreen = props => (
-  <Wrapper mt={4} {...props}>
-    <Container>
-      <Typography variant='pageTitle'>{trans('Support')}</Typography>
-
-      <Box style={{ textAlign: 'left' }}>
-        <Typography mt={4}>
-          Continually harness empowered interfaces via clicks-and-mortar
-          markets. Energistically benchmark focused platforms and technically
-          sound deliverables. Phosfluorescently communicate cross-media
-          collaboration and idea-sharing without vertical meta-services.
-          Continually provide access to installed base models vis-a-vis
-          cross-unit leadership. Energistically simplify emerging alignments
-          rather than global human capital.
-        </Typography>
-
-        <Typography mt={4}>
-          Holisticly extend efficient niche markets and multidisciplinary
-          outsourcing. Proactively leverage existing an expanded array of
-          e-tailers before dynamic niche markets. Appropriately facilitate
-          integrated action items through cross-platform deliverables.
-          Collaboratively leverage other's sustainable niches without emerging
-          intellectual capital. Monotonectally enhance progressive data whereas
-          multifunctional e-commerce.
-        </Typography>
-
-        <Typography mt={4}>
-          Quickly disintermediate visionary e-tailers without bleeding-edge
-          networks. Interactively target equity invested bandwidth after
-          client-centric ROI. Quickly cultivate holistic outsourcing after
-          synergistic web services. Objectively disseminate extensive technology
-          vis-a-vis revolutionary e-tailers. Credibly syndicate diverse sources
-          with value-added materials.
-        </Typography>
-      </Box>
-    </Container>
-  </Wrapper>
-)
-
-const Container = styled.div`
-  ${themed('Page.container')}
-`
-
-const Wrapper = styled(Box)`
-  ${themed('Page.wrapper')}
-`
-
+const SupportScreen = () => {
+  return (
+    <>
+      <Typography variant='pageTitle' as='h1'>
+        {trans('Support')}
+      </Typography>
+      <NavBar />
+      <Panel>
+        <Panel.Section>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            dolorem nemo quas reprehenderit sit doloribus labore omnis,
+            veritatis vero quae! Saepe non dignissimos incidunt, nulla rerum et
+            aliquam unde eum.
+          </p>
+          <p>
+            Voluptatem modi odio fugit eaque enim ipsam dolore voluptas officia
+            consequuntur mollitia dignissimos, velit explicabo, excepturi
+            officiis quae similique aperiam voluptates soluta dolor. Magni,
+            saepe aperiam. Maiores omnis tenetur repudiandae.
+          </p>
+          <p>
+            Sint voluptatem dolorum cum deserunt sequi numquam recusandae
+            quisquam temporibus cupiditate molestiae, amet explicabo qui rem,
+            minima architecto accusamus assumenda. Voluptatibus, quae quidem!
+            Blanditiis, exercitationem voluptas dolorem ut aliquam eius.
+          </p>
+          <p>
+            Tempore aperiam, porro accusamus voluptatibus maxime facere incidunt
+            molestiae, error minima voluptate ratione amet earum nam quos nihil.
+            Totam laudantium quae tenetur asperiores consequatur eaque error
+            magni eos accusantium inventore?
+          </p>
+          <Typography as='h3' variant='inlineTitle'>
+            {trans('Have more questions?')}
+          </Typography>
+          <Button variant='accent'>{trans('Contact us')}</Button>
+        </Panel.Section>
+        <Panel.Image src='https://images.unsplash.com/photo-1521791136064-7986c2920216' />
+      </Panel>
+    </>
+  )
+}
 export default SupportScreen

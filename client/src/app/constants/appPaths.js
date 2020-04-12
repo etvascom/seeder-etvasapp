@@ -1,18 +1,12 @@
 export const appPaths = [
   {
-    name: 'overview',
-    iconName: 'language'
+    label: 'Overview',
+    icon: 'visibility',
+    path: '#overview',
   },
   {
-    name: 'assets',
-    iconName: 'https'
+    label: 'Support',
+    icon: 'info',
+    path: '#support',
   },
-  {
-    name: 'alerts',
-    iconName: 'notification_important'
-  },
-  {
-    name: 'support',
-    iconName: 'perm_phone_msg'
-  }
 ]

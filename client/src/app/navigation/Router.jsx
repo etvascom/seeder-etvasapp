@@ -1,23 +1,32 @@
-import React from 'react'
-import { Router, Redirect } from '@reach/router'
+import React, { useContext } from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { themed } from '@kogaio/utils'
 
-import { NotFound, Overview, Support } from '../screens'
+import { NavContext } from './NavProvider'
+import { Overview, Support } from '../screens'
 
-const AppRouter = props => (
-  <Wrapper id='router-wrapper'>
-    <Router primary={false} {...props}>
-      <Overview path='/overview' />
-      <Support path='/support' />
-      <Redirect from='/' to='/overview' noThrow />
-      <NotFound default />
-    </Router>
-  </Wrapper>
-)
+const AppRouter = () => {
+  return (
+    <Page>
+      <View component={Overview} path='overview' />
+      <View component={Support} path='support' />
+    </Page>
+  )
+}
 
-const Wrapper = styled.div`
-  ${themed('Router.wrapper')};
+const Page = styled.div`
+  height: 100vh;
 `
+
+const View = ({ component: Component, path }) => {
+  const { currentView, changeView } = useContext(NavContext)
+  if (!currentView.includes(path)) return null
+  return <Component changeView={changeView} currentView={currentView} />
+}
+
+View.propTypes = {
+  component: PropTypes.func,
+  path: PropTypes.string,
+}
 
 export default AppRouter

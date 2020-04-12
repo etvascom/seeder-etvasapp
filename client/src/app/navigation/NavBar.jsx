@@ -1,54 +1,37 @@
-import React, { Fragment } from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import { Flex, Space } from '@kogaio'
+import { Flex, Icon, Anchor } from '@kogaio'
 import { themed } from '@kogaio/utils'
-import { Link } from '@reach/router'
 
 import { appPaths } from 'app/constants'
-import { capitalizeFirstChar } from '@shared/funcs'
-import MobileNavLink from './MobileNavLink'
+import { NavContext } from './NavProvider'
 
 const NavBar = () => {
-  const injectActiveId = platform => ({ isCurrent }) => {
-    if (isCurrent)
-      return platform === 'web'
-        ? { id: 'active-route' }
-        : { id: 'active-route-mobile' }
-  }
+  const { currentView } = useContext(NavContext)
+
+  const _isCurrentRoute = path => path.substr(1) === currentView
 
   return (
-    <NavigationContainer>
-      {appPaths.map((pathObj, index) => {
-        const linkTitle = capitalizeFirstChar(pathObj.name)
-        return (
-          <Fragment key={index}>
-            <Space ml={index === 0 ? 0 : 4}>
-              <DesktopNavigationTab
-                to={pathObj.name}
-                getProps={injectActiveId('web')}>
-                {linkTitle}
-              </DesktopNavigationTab>
-            </Space>
-            <MobileNavLink
-              to={pathObj.name}
-              getProps={injectActiveId('mobile')}
-              title={linkTitle}
-              iconName={pathObj.iconName}
-            />
-          </Fragment>
-        )
-      })}
-    </NavigationContainer>
+    <Navigation as='nav'>
+      {appPaths.map(route => (
+        <NavLink
+          key={route.path}
+          href={route.path}
+          aria-current={_isCurrentRoute(route.path) ? 'page' : null}>
+          <Icon name={route.icon} />
+          {route.label}
+        </NavLink>
+      ))}
+    </Navigation>
   )
 }
 
-const NavigationContainer = styled(Flex)`
-  ${themed('NavBar.container')}
+const Navigation = styled(Flex)`
+  ${themed('NavBar.container')};
 `
-
-const DesktopNavigationTab = styled(Link)`
-  ${themed('NavBar.tab')}
+const NavLink = styled(Anchor)`
+  ${themed('NavBar.link')};
 `
 
 export default NavBar

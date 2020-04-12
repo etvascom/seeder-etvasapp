@@ -14,5 +14,12 @@ function persistToken(name = 'token') {
   const qs = getQueryVars(window.location.search)
   if (qs[name]) {
     sessionStorage.setItem(name, qs[name])
+    return
+  }
+  if (
+    process.env.NODE_ENV !== 'production' &&
+    process.env.REACT_APP_LOCAL_TOKEN
+  ) {
+    sessionStorage.setItem(name, process.env.REACT_APP_LOCAL_TOKEN)
   }
 }
