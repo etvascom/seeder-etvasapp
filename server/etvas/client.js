@@ -20,4 +20,20 @@ module.exports = bearer => ({
     })
     return response && response.data && response.data === 'OK'
   },
+  getExternalData: async () => {
+    const response = await xhr.get('/products/external-data', {
+      headers: getCommonHeaders(bearer),
+    })
+    if (response && response.data && response.data.data) {
+      return JSON.parse(response.data.data)
+    }
+    return null
+  },
+  putExternalData: async data => {
+    const payload = data ? { data: JSON.stringify(data) } : { data: '' }
+    await xhr.put('/products/external-data', payload, {
+      headers: getCommonHeaders(bearer),
+    })
+    return true
+  },
 })
