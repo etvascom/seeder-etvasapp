@@ -1,5 +1,6 @@
 import React from 'react'
-import { ActivityIndicator, Flex, Space, Typography } from '@kogaio'
+import { ActivityIndicator, Flex, Space } from '@kogaio'
+import { Typography } from '@etvas/etvaskit'
 import { trans } from '@shared/i18n'
 
 const AuthorizingIndicator = () => (

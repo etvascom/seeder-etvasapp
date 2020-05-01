@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ThemeProvider } from 'styled-components'
-import { buildTheme } from '@kogaio/utils'
+import { buildTheme } from '@etvas/etvaskit'
 
 import appTheme from '@assets/theme'
 import { GlobalStyle } from '@assets/GlobalStyle'

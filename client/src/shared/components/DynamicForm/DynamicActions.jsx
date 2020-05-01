@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Flex, Button } from '@kogaio'
+import { Flex } from '@kogaio'
+import { Button } from '@etvas/etvaskit'
 
 const DynamicActions = ({ align, layout, clearFormStatus }) => {
   const onCancel = buttonHandler => () => {
@@ -42,14 +43,14 @@ DynamicActions.propTypes = {
       label: PropTypes.string,
       type: PropTypes.string,
       handler: PropTypes.func,
-      variant: PropTypes.string
+      variant: PropTypes.string,
     })
-  )
+  ),
 }
 
 DynamicActions.defaultProps = {
   align: 'center',
-  layout: []
+  layout: [],
 }
 
 export default DynamicActions

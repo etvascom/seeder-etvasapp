@@ -33,8 +33,5 @@ export const GlobalStyle = createGlobalStyle`
     box-sizing: border-box;
   }
 
-  :root {
-    --themed-brand-color: #015294;
-    --themed-accent-color: #EF6319;
-  }
+  ${themeGet('root')};
 `
