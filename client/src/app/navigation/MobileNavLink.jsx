@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import { Typography, Icon } from '@kogaio'
-import { themed } from '@kogaio/utils'
+import { Typography, Icon } from '@etvas/etvaskit'
+import { themed } from '@etvas/etvaskit'
 
 const MobileNavLink = ({ iconName, title, ...props }) => (
   <MobileLink {...props}>

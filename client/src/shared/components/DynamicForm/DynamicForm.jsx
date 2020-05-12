@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { Formik, Form } from 'formik'
-import { Flex, Box } from '@kogaio'
+import { Flex, Box } from '@etvas/etvaskit'
 
 import DynamicShadow from './DynamicShadow'
 import DynamicStatus from './DynamicStatus'

@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { themeGet } from '@kogaio/utils'
-import { ActivityIndicator } from '@kogaio'
+import { themeGet } from '@etvas/etvaskit'
+import { ActivityIndicator } from '@etvas/etvaskit'
 
 const DynamicShadow = ({ visible }) => {
   if (!visible) return null

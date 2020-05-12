@@ -1,5 +1,5 @@
 import React from 'react'
-import { Flex, Icon, Typography } from '@kogaio'
+import { Flex, Icon, Typography } from '@etvas/etvaskit'
 import { trans } from '@shared/i18n'
 
 const UnauthorizedScreen = () => (

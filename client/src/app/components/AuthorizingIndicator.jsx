@@ -1,5 +1,5 @@
 import React from 'react'
-import { ActivityIndicator, Flex, Space, Typography } from '@kogaio'
+import { ActivityIndicator, Flex, Space, Typography } from '@etvas/etvaskit'
 import { trans } from '@shared/i18n'
 
 const AuthorizingIndicator = () => (

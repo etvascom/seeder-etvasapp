@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Dropdown } from '@kogaio'
+import { Dropdown } from '@etvas/etvaskit'
 
 const DynamicSelect = ({ options, ...props }) => (
   <Dropdown {...props}>

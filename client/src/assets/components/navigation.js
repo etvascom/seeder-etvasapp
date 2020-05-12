@@ -1,27 +1,23 @@
-import colors from '../core/colors'
-import breakpoints from '../core/breakpoints'
-const md = rules => ({
-  [`@media (min-width: ${breakpoints.md})`]: rules,
-})
+import { md } from '@etvas/etvaskit'
 
 const NAV_MOBILE_ITEM_SIZE = 64
 
 export default {
-  container: {
+  container: ({ theme }) => ({
     position: 'fixed',
     bottom: 0,
-    borderTop: `1px solid ${colors.gray}`,
+    borderTop: `1px solid ${theme.theme.colors.gray}`,
     width: '100%',
-    backgroundColor: colors.white,
-    ...md({
+    backgroundColor: theme.theme.colors.white,
+    ...md(theme)({
       alignItems: 'flex-start',
       position: 'static',
       border: 'none',
-      background: 'transparent',
-    }),
-  },
-  link: {
-    borderRight: `1px solid ${colors.gray}`,
+      background: 'transparent'
+    })
+  }),
+  link: ({ theme }) => ({
+    borderRight: `1px solid ${theme.colors.gray}`,
     height: `${NAV_MOBILE_ITEM_SIZE}px`,
     display: 'flex',
     flexGrow: 1,
@@ -29,40 +25,40 @@ export default {
     justifyContent: 'center',
     flexDirection: 'column',
     textDecoration: 'none',
-    color: colors.light,
+    color: theme.colors.light,
     fontWeight: 300,
     '.material-icons': {
-      color: colors.light,
+      color: theme.colors.light
     },
     '&:last-child': {
-      borderRight: 'none',
+      borderRight: 'none'
     },
     '&[aria-current="page"]': {
-      backgroundColor: colors.brand,
-      color: colors.white,
+      backgroundColor: theme.colors.brand,
+      color: theme.colors.white,
       '.material-icons': {
-        color: colors.white,
-      },
+        color: theme.colors.white
+      }
     },
-    ...md({
+    ...md(theme)({
       flexGrow: 0,
       flexDirection: 'row',
       border: 'none',
-      color: colors.light,
+      color: theme.colo.light,
       fontWeight: 'bold',
       textTransform: 'uppercase',
       paddingRight: 48,
       background: 'transparent',
       '.material-icons': {
-        paddingRight: '0.5em',
+        paddingRight: '0.5em'
       },
       '&[aria-current="page"]': {
         backgroundColor: 'transparent',
-        color: colors.brand,
+        color: theme.colo.brand,
         '.material-icons': {
-          color: colors.brand,
-        },
-      },
-    }),
-  },
+          color: theme.colo.brand
+        }
+      }
+    })
+  })
 }

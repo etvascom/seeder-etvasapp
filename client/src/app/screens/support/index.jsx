@@ -1,5 +1,5 @@
 import React from 'react'
-import { Typography, Button } from '@kogaio'
+import { Typography, Button } from '@etvas/etvaskit'
 import NavBar from '../../navigation/NavBar'
 import { Panel } from '@shared/components'
 import { trans } from '@shared/i18n'

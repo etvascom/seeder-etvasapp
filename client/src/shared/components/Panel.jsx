@@ -2,28 +2,37 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
-import { Flex, Box } from '@kogaio'
-import { themed } from '@kogaio/utils'
+import { Flex, Box } from '@etvas/etvaskit'
 
 const Panel = ({ children, ...props }) => (
   <StyledPanel {...props}>{children}</StyledPanel>
 )
 
 const StyledPanel = styled(Flex)`
-  ${themed('Panel.container')};
+  ${({ theme }) => ({
+    borderRadius: 8,
+    boxShadow: theme.colors.shadow,
+    backgroundColor: theme.colors.white
+  })}
 `
 
 const StyledSection = styled(Box)`
-  ${themed('Panel.section')};
+  padding: 24px;
 `
 
 const StyledImage = styled.div`
-  ${themed('Panel.image')};
+  background-repeat: no-repeat;
+  background-position: center center;
+  flex: 0 0 50%;
+  height: auto;
+  background-size: cover;
+  border-radius: 0 8px 8px 0;
+
   ${({ src }) => `background-image: url(${src})`};
 `
 
 Panel.propTypes = {
-  children: PropTypes.node,
+  children: PropTypes.node
 }
 
 Panel.Section = StyledSection

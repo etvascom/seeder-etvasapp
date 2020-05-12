@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Typography, Space } from '@kogaio'
+import { Typography, Space } from '@etvas/etvaskit'
 
 const DynamicStatus = ({ title }) => (
   <Space mb={6}>

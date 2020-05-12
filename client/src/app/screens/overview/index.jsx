@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
 import { Panel } from '@shared/components'
-import { Typography, Space, Box } from '@kogaio'
+import { Typography, Space, Box } from '@etvas/etvaskit'
 import { ApiContext } from '../../services/ApiProvider'
 import { trans } from '@shared/i18n'
 import NavBar from '../../navigation/NavBar'
