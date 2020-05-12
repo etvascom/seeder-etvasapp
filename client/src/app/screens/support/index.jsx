@@ -7,7 +7,7 @@ import { trans } from '@shared/i18n'
 const SupportScreen = () => {
   return (
     <>
-      <Typography variant='pageTitle' as='h1'>
+      <Typography variant='titleLarge' as='h1'>
         {trans('Support')}
       </Typography>
       <NavBar />
@@ -37,10 +37,10 @@ const SupportScreen = () => {
             Totam laudantium quae tenetur asperiores consequatur eaque error
             magni eos accusantium inventore?
           </p>
-          <Typography as='h3' variant='inlineTitle'>
+          <Typography as='h3' variant='titleSmall'>
             {trans('Have more questions?')}
           </Typography>
-          <Button variant='accent'>{trans('Contact us')}</Button>
+          <Button variant='primary'>{trans('Contact us')}</Button>
         </Panel.Section>
         <Panel.Image src='https://images.unsplash.com/photo-1521791136064-7986c2920216' />
       </Panel>

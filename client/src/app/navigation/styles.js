@@ -6,9 +6,9 @@ export default {
   container: ({ theme }) => ({
     position: 'fixed',
     bottom: 0,
-    borderTop: `1px solid ${theme.theme.colors.gray}`,
+    borderTop: `1px solid ${theme.colors.gray}`,
     width: '100%',
-    backgroundColor: theme.theme.colors.white,
+    backgroundColor: theme.colors.white,
     ...md(theme)({
       alignItems: 'flex-start',
       position: 'static',
@@ -16,6 +16,7 @@ export default {
       background: 'transparent'
     })
   }),
+
   link: ({ theme }) => ({
     borderRight: `1px solid ${theme.colors.gray}`,
     height: `${NAV_MOBILE_ITEM_SIZE}px`,
@@ -44,7 +45,7 @@ export default {
       flexGrow: 0,
       flexDirection: 'row',
       border: 'none',
-      color: theme.colo.light,
+      color: theme.colors.light,
       fontWeight: 'bold',
       textTransform: 'uppercase',
       paddingRight: 48,
@@ -54,9 +55,9 @@ export default {
       },
       '&[aria-current="page"]': {
         backgroundColor: 'transparent',
-        color: theme.colo.brand,
+        color: theme.colors.brand,
         '.material-icons': {
-          color: theme.colo.brand
+          color: theme.colors.brand
         }
       }
     })

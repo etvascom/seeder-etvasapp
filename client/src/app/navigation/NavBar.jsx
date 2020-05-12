@@ -1,12 +1,11 @@
 import React, { useContext } from 'react'
 import styled from 'styled-components'
 
-import { themed, themeGet, Flex, Icon, Anchor } from '@etvas/etvaskit'
+import { Flex, Icon, Anchor } from '@etvas/etvaskit'
 
 import { appPaths } from 'app/constants'
 import { NavContext } from './NavProvider'
-
-console.log(themed, themeGet)
+import styles from './styles'
 
 const NavBar = () => {
   const { currentView } = useContext(NavContext)
@@ -28,11 +27,8 @@ const NavBar = () => {
   )
 }
 
-const Navigation = styled(Flex)`
-  ${console.log(themed('NavBar.container'))};
-`
-const NavLink = styled(Anchor)`
-  ${themed('NavBar.link')};
-`
+const Navigation = styled(Flex)(styles.container)
+
+const NavLink = styled(Anchor)(styles.link)
 
 export default NavBar

@@ -10,7 +10,7 @@ const OverviewScreen = () => {
 
   return (
     <>
-      <Typography variant='pageTitle' as='h1'>
+      <Typography variant='titleLarge' as='h1'>
         {trans('Overview')}
       </Typography>
       <NavBar />
@@ -19,19 +19,21 @@ const OverviewScreen = () => {
           <Typography as='h2'>{trans('Customer')}</Typography>
           <Space mt={6}>
             <Box>
-              <Typography variant='label'>{trans('ID')}</Typography>
+              <Typography variant='labelSamll'>{trans('ID')}</Typography>
               <Typography as='h4' mt={0}>
                 {customer ? customer.id : '...'}
               </Typography>
             </Box>
             <Box>
-              <Typography variant='label'>{trans('First name')}</Typography>
+              <Typography variant='labelSamll'>
+                {trans('First name')}
+              </Typography>
               <Typography as='h4' mt={0}>
                 {customer ? customer.firstName : '...'}
               </Typography>
             </Box>
             <Box>
-              <Typography variant='label'>{trans('Last name')}</Typography>
+              <Typography variant='labelSamll'>{trans('Last name')}</Typography>
               <Typography as='h4' mt={0}>
                 {customer ? customer.lastName : '...'}
               </Typography>

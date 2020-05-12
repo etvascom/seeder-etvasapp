@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { ThemeProvider, BrandingProvider, GlobalStyle } from '@etvas/etvaskit'
 
-import appTheme from '@assets/theme'
 import Router from './navigation/Router'
 import ApiProvider from './services/ApiProvider'
 import NavProvider from './navigation/NavProvider'
@@ -42,7 +41,7 @@ const Root = () => {
 
   return (
     <BrandingProvider>
-      <ThemeProvider theme={appTheme}>
+      <ThemeProvider>
         {loading || !isAuthorized ? (
           <AuthorizingOrUnauthorized loading={loading} />
         ) : (

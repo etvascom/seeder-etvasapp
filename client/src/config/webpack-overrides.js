@@ -8,7 +8,6 @@ module.exports = {
       '@shared': path.resolve(paths.appPath, `${paths.appSrc}/shared`),
       '@config': path.resolve(paths.appPath, `${paths.appSrc}/config`),
       '@assets': path.resolve(paths.appPath, `${paths.appSrc}/assets`),
-      '@etvas/etvaskit': path.resolve(paths.appPath, 'node_modules/@ivoryio/kogaio'),
       app: path.resolve(paths.appPath, `${paths.appSrc}/app`)
     }
     return config
