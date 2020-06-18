@@ -3,7 +3,7 @@ import React, {
   useEffect,
   useCallback,
   useReducer,
-  useState,
+  useState
 } from 'react'
 import { dataReducer, ACTION_TYPES, INITIAL_STATE } from './dataReducer'
 
@@ -16,7 +16,7 @@ const ApiProvider = ({ children, ...props }) => {
   const storeCustomer = customerProfile =>
     dispatch({
       type: ACTION_TYPES.customerStored,
-      payload: customerProfile,
+      payload: customerProfile
     })
 
   const fetchCustomer = useCallback(async () => {
@@ -43,7 +43,7 @@ const ApiProvider = ({ children, ...props }) => {
         customer,
         fetchCustomer,
         isFetchingCustomer,
-        ...props,
+        ...props
       }}>
       {children}
     </ApiContext.Provider>
