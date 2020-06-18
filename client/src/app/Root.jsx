@@ -34,7 +34,7 @@ const Root = () => {
       }
     } catch (error) {
       setAuthorizeData({
-        isAuthorized: true,
+        isAuthorized: false,
         loading: false
       })
     }
