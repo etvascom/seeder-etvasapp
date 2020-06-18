@@ -1,6 +1,6 @@
 import React from 'react'
-import { ActivityIndicator, Flex, Space, Typography } from '@etvas/etvaskit'
-import { trans } from '@shared/i18n'
+import { ActivityIndicator, Flex, Typography } from '@etvas/etvaskit'
+import { T } from '@etvas/i18n'
 
 const AuthorizingIndicator = () => (
   <Flex
@@ -14,9 +14,10 @@ const AuthorizingIndicator = () => (
       colors={{ background: 'white', primary: 'info' }}
       size='64px'
     />
-    <Space mt={2}>
-      <Typography>{trans('Authorizing')}...</Typography>
-    </Space>
+    <Typography variant='labelSmall' mt={2}>
+      <T label='label.authorizing' />
+      ...
+    </Typography>
   </Flex>
 )
 

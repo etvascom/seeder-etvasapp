@@ -1,0 +1,12 @@
+{
+  "menu.overview": "Overview",
+  "menu.support": "Support",
+  "title.customer": "Customer",
+  "label.id": "ID",
+  "label.firstName": "First name",
+  "label.lastName": "Last name",
+  "button.contactUs": "Contact us",
+  "text.haveQuestions": "Have any questions?",
+  "label.authorizing": "Authorizing",
+  "error.authFailed": "Authorization Failed"
+}

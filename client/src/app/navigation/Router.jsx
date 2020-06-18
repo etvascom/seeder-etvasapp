@@ -1,22 +1,27 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
+import { Box, IntegrationHeader } from '@etvas/etvaskit'
 
 import { NavContext } from './NavProvider'
 import { Overview, Support } from '../screens'
+import { NavMenu } from './NavMenu'
 
 const AppRouter = () => {
   return (
-    <Page>
+    <Box p={1}>
+      <IntegrationHeader
+        title='Hello Etvas'
+        providerName='etvas'
+        providerPrefix='By'
+        url='https://etvas.com'
+      />
+      <NavMenu />
+
       <View component={Overview} path='overview' />
       <View component={Support} path='support' />
-    </Page>
+    </Box>
   )
 }
-
-const Page = styled.div`
-  height: 100vh;
-`
 
 const View = ({ component: Component, path }) => {
   const { currentView, changeView } = useContext(NavContext)
@@ -26,7 +31,7 @@ const View = ({ component: Component, path }) => {
 
 View.propTypes = {
   component: PropTypes.func,
-  path: PropTypes.string,
+  path: PropTypes.string
 }
 
 export default AppRouter

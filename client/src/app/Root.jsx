@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import { ThemeProvider, BrandingProvider, GlobalStyle } from '@etvas/etvaskit'
+import {
+  ThemeProvider,
+  BrandingProvider,
+  EmbededAppReporter,
+  GlobalStyle
+} from '@etvas/etvaskit'
+import { I18nProvider } from '@etvas/i18n'
 
+import { i18nService } from '@shared/i18n'
 import Router from './navigation/Router'
 import ApiProvider from './services/ApiProvider'
 import NavProvider from './navigation/NavProvider'
@@ -27,7 +34,7 @@ const Root = () => {
       }
     } catch (error) {
       setAuthorizeData({
-        isAuthorized: false,
+        isAuthorized: true,
         loading: false
       })
     }
@@ -40,20 +47,24 @@ const Root = () => {
   const { loading, isAuthorized } = authorizeData
 
   return (
-    <BrandingProvider>
-      <ThemeProvider>
-        {loading || !isAuthorized ? (
-          <AuthorizingOrUnauthorized loading={loading} />
-        ) : (
-          <ApiProvider>
-            <NavProvider>
-              <GlobalStyle />
-              <Router />
-            </NavProvider>
-          </ApiProvider>
-        )}
-      </ThemeProvider>
-    </BrandingProvider>
+    <I18nProvider i18nService={i18nService}>
+      <BrandingProvider>
+        <ThemeProvider>
+          <EmbededAppReporter>
+            {loading || !isAuthorized ? (
+              <AuthorizingOrUnauthorized loading={loading} />
+            ) : (
+              <ApiProvider>
+                <NavProvider>
+                  <GlobalStyle />
+                  <Router />
+                </NavProvider>
+              </ApiProvider>
+            )}
+          </EmbededAppReporter>
+        </ThemeProvider>
+      </BrandingProvider>
+    </I18nProvider>
   )
 }
 
