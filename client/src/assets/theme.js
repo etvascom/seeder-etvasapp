@@ -1,5 +1,3 @@
-
-const theme = Object.seal({
-})
+const theme = Object.seal({})
 
 export default theme

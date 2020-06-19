@@ -34,7 +34,7 @@ const Root = () => {
       }
     } catch (error) {
       setAuthorizeData({
-        isAuthorized: true,
+        isAuthorized: false,
         loading: false
       })
     }
@@ -51,12 +51,12 @@ const Root = () => {
       <BrandingProvider>
         <ThemeProvider>
           <EmbededAppReporter>
+            <GlobalStyle />
             {loading || !isAuthorized ? (
               <AuthorizingOrUnauthorized loading={loading} />
             ) : (
               <ApiProvider>
                 <NavProvider>
-                  <GlobalStyle />
                   <Router />
                 </NavProvider>
               </ApiProvider>

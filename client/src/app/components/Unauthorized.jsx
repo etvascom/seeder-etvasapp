@@ -10,8 +10,8 @@ const UnauthorizedScreen = () => (
     position='absolute'
     width='100%'
     height='100%'>
-    <Icon color='red' fontSize={{ xs: '4rem', lg: '6rem' }} name='error' />
-    <Typography fontSize={{ xs: 3, lg: 4 }} position='absolute'>
+    <Icon color='error' name='alertCircle' size='40px' />
+    <Typography variant='titleLarge' mt={2}>
       <T label='error.authFailed' />
     </Typography>
   </Flex>
