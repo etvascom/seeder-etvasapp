@@ -7,6 +7,7 @@
     "test": "echo \"No tests!\""
   },
   "dependencies": {
+    "@etvas/etvas-sdk": "^0.2.5",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
