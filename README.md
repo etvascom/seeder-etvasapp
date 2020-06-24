@@ -1,10 +1,8 @@
 # Seeder Etvas APP
 
-This repository is intended to have a quick start
-for ETVAS Application Integrations.
+This repository is intended to have a quick start for ETVAS Application Integrations.
 
-It contains both the Front-End (React) and the Back-End (NodeJS)
-applications.
+It contains both the Front-End (React) and the Back-End (NodeJS) applications.
 
 ## Instructions
 
@@ -34,9 +32,17 @@ vim client/.env.development.local
 
 #### 4. Run it
 
+You have a special script named `bootstrap` that will run install in both client and server. Clever, huh?
+
 ```
 npm run bootstrap
 npm run start
 ```
 
-## Setup the Environment variables
+## More information
+
+You can find details about the implementation and information flow in the [Documentation](/Documentation.md) file.
+
+The application uses the [etvas-sdk](https://github.com/etvascom/etvas-sdk) for back-end communication and [etvas-kit](https://github.com/etvascom/etvas-kit) for React Components, UI theming and more.
+
+Please consult the corresponding documentation to learn more.
