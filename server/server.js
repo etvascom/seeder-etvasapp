@@ -12,9 +12,6 @@ etvas.init({
   apiURL: process.env.ETVAS_REST_URI,
 })
 
-// Call Jobs after etvas init will expose the etvas object to them also
-require('./jobs')
-
 const app = express()
 const port = process.env.PORT || 5000
 
