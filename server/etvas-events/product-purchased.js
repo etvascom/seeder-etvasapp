@@ -3,7 +3,7 @@
  * in ETVAS Platform. The app receives this event as a POST request,
  * on the URL provided in Platform at product setup. The SDK
  * automatically routes the event to this handler, which receives
- * the payload as an object containing userId and purchaseId. Both
+ * the payload as an object containing productId and purchaseId. Both
  * of them are UUID v4, 36 character strings.
  *
  * The SDK will also verify the identity of the caller for you, so
@@ -20,10 +20,10 @@ const etvas = require('@etvas/etvas-sdk')
  * @param {object} payload The event payload
  * @returns True or object
  */
-const handler = async ({ userId, purchaseId }) => {
+const handler = async ({ productId, purchaseId }) => {
   // A new purchase was made on this product or service.
   // Create the user on your API. You should not
-  // use the userId parameter, but only the purchaseId.
+  // use the productId parameter, but only the purchaseId.
 
   // const internalId = myApiClient.createSubscription(purchaseId)
   const internalId = 'internal-id'

@@ -3,7 +3,7 @@
  * in ETVAS Platform. The app receives this event as a POST request,
  * on the URL provided in Platform at product setup. The SDK
  * automatically routes the event to this handler, which receives
- * the payload as an object containing userId and purchaseId. Both
+ * the payload as an object containing productId and purchaseId. Both
  * of them are UUID v4, 36 character strings.
  *
  * The SDK will also verify the identity of the caller for you, so
@@ -20,7 +20,7 @@ const etvas = require('@etvas/etvas-sdk')
  * @param {object} payload The event payload
  * @returns True or object
  */
-const handler = async ({ userId, purchaseId }) => {
+const handler = async ({ productId, purchaseId }) => {
   // If you previously stored your internal ID in ETVAS
   // platform, you can retrieve and co a cleanup on your side
   const { internalId } = etvas.client.read(purchaseId)
@@ -32,10 +32,10 @@ const handler = async ({ userId, purchaseId }) => {
 
   // Cleanup any data stored in ETVAS Platform
   await etvas.client.clear(purchaseId)
-  await etvas.client.clear(userId)
+  await etvas.client.clear(productId)
 
   // Remember, a product.canceled event means the customer can
-  // buy the product / service again.
+  // buy the same product / service (with the same productId) again.
 
   // You can simply return true for a HTTP/1.1 204 No Content
   // response. You also can return an object, which will be used for
