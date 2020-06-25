@@ -1,4 +1,4 @@
-const client = require('../../../etvas/client')
+const etvas = require('@etvas/etvas-sdk')
 
 module.exports = async (req, res, next) => {
   if (!req.bearerToken) {
@@ -11,8 +11,9 @@ module.exports = async (req, res, next) => {
   }
 
   try {
-    // The customer profile:
-    const customerProfile = await client(req.bearerToken).getCustomerProfile()
+    const customerProfile = await etvas
+      .client(req.bearerToken)
+      .getCustomerProfile()
     req.customerProfile = customerProfile
     next()
   } catch (err) {
@@ -20,7 +21,7 @@ module.exports = async (req, res, next) => {
       error: true,
       code: 'UNAUTHORIZED',
       status: 401,
-      message: 'Invalid token',
+      message: 'Invalid tokens',
       details: err,
     })
   }

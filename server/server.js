@@ -2,7 +2,15 @@ const express = require('express')
 const parser = require('body-parser')
 const cors = require('cors')
 const routes = require('./routes')
+const etvasEvents = require('./etvas-events')
 const proxy = require('./routes/utils/proxy')
+
+const etvas = require('@etvas/etvas-sdk')
+
+etvas.init({
+  apiKey: process.env.ETVAS_API_KEY,
+  apiURL: process.env.ETVAS_REST_URI,
+})
 
 const app = express()
 const port = process.env.PORT || 5000
@@ -11,8 +19,7 @@ app.use(cors())
 app.use(parser.json())
 app.use(parser.urlencoded({ extended: true }))
 
-const etvasRouter = express.Router()
-const ownRouter = express.Router()
+const mainRouter = express.Router()
 
 const createRouter = route => {
   const router = express.Router()
@@ -24,26 +31,28 @@ const createRouter = route => {
   return router
 }
 
-routes.etvas.forEach(route => {
+routes.forEach(route => {
   const router = createRouter(route)
-  etvasRouter.use('/', router)
+  mainRouter.use('/', router)
 })
 
-routes.own.forEach(route => {
-  const router = createRouter(route)
-  ownRouter.use('/', router)
+// Register Etvas events routes
+etvasEvents.forEach(etvasEvent => {
+  etvas.events.on(etvasEvent.name, etvasEvent.handler)
 })
 
 if (process.env.NODE_ENV === 'production') {
-  app.use('/etvas', etvasRouter)
-  app.use('/', ownRouter)
+  // Add registered event routes to application
+  app.use('/etvas/events', etvas.events())
+  // Add own routes to application
+  app.use('/', mainRouter)
 } else {
   app.use((req, res, next) => {
     console.info(`${req.method}: ${req.url}`)
     next()
   })
-  app.use('/api/etvas', etvasRouter)
-  app.use('/api', ownRouter)
+  app.use('/api/etvas/events', etvas.events())
+  app.use('/api', mainRouter)
 }
 
 app.listen(port, () => console.info('Server started on port', port))
