@@ -1,11 +1,13 @@
-const productPurchased = require('./product-purchased')
-const productCanceled = require('./product-canceled')
-const productSuspended = require('./product-suspended')
-const productRepurchased = require('./product-repurchased')
+const purchaseSucceeded = require('./purchase-succeeded')
+const purchaseCanceled = require('./purchase-canceled')
+const purchaseSuspended = require('./purchase-suspended')
+const purchaseResumed = require('./purchase-resumed')
+const userDeleted = require('./user-deleted')
 
 module.exports = [
-  productPurchased,
-  productCanceled,
-  productSuspended,
-  productRepurchased,
+  purchaseSucceeded,
+  purchaseCanceled,
+  purchaseSuspended,
+  purchaseResumed,
+  userDeleted,
 ]

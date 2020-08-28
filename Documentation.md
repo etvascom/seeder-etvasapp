@@ -129,13 +129,13 @@ x-api-key: the-api-key
 
 This event is formal, meaning you can control the outcome based on the HTTP status you return. If you respond with a success HTTP status, the product is marked as purchased and the user can use it. If not (a HTTP status of `4xx` or `5xx`), the product will be marked as Failed Purchase and the matter must be resolved by human support intervention. Needless to say, nobody wants this situation.
 
-#### Product canceled
+#### Purchase canceled
 
 This event is emitted in two situations: when the customer chooses to cancel his subscription OR when a specific time-based subscription reaches it's end-of-time moment.
 
-After processing this event, the customer should not be able to access the canceled product or services.
+After processing this event, the customer should not be able to access the canceled purchase or services.
 
-The `name` of this event is `product.canceled`:
+The `name` of this event is `purchase.canceled`:
 
 ```
 HTTP/1.1 POST /etvas/events
@@ -144,7 +144,7 @@ Accept: application/json
 x-api-key: the-api-key
 
 {
-  "name": "product.canceled",
+  "name": "purchase.canceled",
   "payload": {
     "productId": "uuid-36-char-long-string",
     "contextId": "uuid-36-char-long-string"

@@ -1,5 +1,5 @@
 /**
- * This handler is called when the product.canceled event is emitted
+ * This handler is called when the purchase.canceled event is emitted
  * in ETVAS Platform. The app receives this event as a POST request,
  * on the URL provided in Platform at product setup. The SDK
  * automatically routes the event to this handler, which receives
@@ -34,7 +34,7 @@ const handler = async ({ productId, purchaseId }) => {
   await etvas.client.clear(purchaseId)
   await etvas.client.clear(productId)
 
-  // Remember, a product.canceled event means the customer can
+  // Remember, a purchase.canceled event means the customer can
   // buy the same product / service (with the same productId) again.
 
   // You can simply return true for a HTTP/1.1 204 No Content
@@ -52,6 +52,6 @@ const handler = async ({ productId, purchaseId }) => {
 // Register the handler
 module.exports = {
   // The name of the event, so the SDK knows how to route it.
-  name: 'product.canceled',
+  name: 'purchase.canceled',
   handler,
 }

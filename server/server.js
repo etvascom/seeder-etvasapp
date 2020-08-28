@@ -10,6 +10,7 @@ const etvas = require('@etvas/etvas-sdk')
 etvas.init({
   apiKey: process.env.ETVAS_API_KEY,
   apiURL: process.env.ETVAS_REST_URI,
+  eventSecret: process.env.ETVAS_EVENT_SECRET,
 })
 
 const app = express()
