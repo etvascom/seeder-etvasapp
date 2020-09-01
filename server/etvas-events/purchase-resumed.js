@@ -1,5 +1,5 @@
 /**
- * This handler is called when the product.purchased event is emitted
+ * This handler is called when the purchase.resumed event is emitted
  * in ETVAS Platform. The app receives this event as a POST request,
  * on the URL provided in Platform at product setup. The SDK
  * automatically routes the event to this handler, which receives
@@ -15,21 +15,23 @@
 const etvas = require('@etvas/etvas-sdk')
 
 /**
- * Product Canceled handler function
+ * Product Repurchased handler function
  *
  * @param {object} payload The event payload
  * @returns True or object
  */
 const handler = async ({ productId, purchaseId }) => {
-  // A new purchase was made on this product or service.
-  // Create the user on your API. You should not
-  // use the productId parameter, but only the purchaseId.
+  // The product or service status has been transformed
+  // from suspended to purchased. The subscription should
+  // be activated again. This operation must be inverse
+  // equivalent with product.suspended operation.
 
-  // const internalId = myApiClient.createSubscription(purchaseId)
-  const internalId = 'internal-id'
-
-  // You can optionally store your id in Etvas Platform
-  await etvas.client.write(purchaseId, { internalId })
+  // Optionally retrieve the previously stored your internalID
+  const { internalId } = etvas.client.read(purchaseId)
+  if (internalId) {
+    // Reactivate the subscription by calling your API
+    // myApi.reactivateSubscription(internalId)
+  }
 
   // You can simply return true for a HTTP/1.1 204 No Content
   // response. You also can return an object, which will be used for
@@ -40,16 +42,12 @@ const handler = async ({ productId, purchaseId }) => {
   // HTTP/1.1 500 Server Error, with a JSON response containing
   // the error message.
 
-  // Warning: throwing an error will block the purchase flow and the
-  // product/service will remain in a non-purchased status. The issue
-  // must be solved by Human Support channels.
-
   return true
 }
 
 // Register the handler
 module.exports = {
   // The name of the event, so the SDK knows how to route it.
-  name: 'product.purchased',
+  name: 'purchase.resumed',
   handler,
 }

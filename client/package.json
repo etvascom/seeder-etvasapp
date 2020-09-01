@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@etvas/etvaskit": "^0.8.23",
+    "@etvas/etvaskit": "^0.12.0",
     "@etvas/i18n": "^1.2.0",
     "axios": "^0.19.2",
     "copy-webpack-plugin": "^6.0.2",
