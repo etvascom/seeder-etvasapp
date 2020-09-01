@@ -27,22 +27,6 @@ const handler = async ({ purchaseId, user }) => {
   // A deleted user will not be able to access the resumed
   // product or services.
 
-  // You can send an email to inform the user about this event
-  // by using the helper function built on top of
-  // the ._sendRawEmail function from etvas-sdk
-  /*
-  const now = Date.now()
-  const text = [
-    'EVENT: user.deleted',
-    `ETVAS Context Id: ${purchaseId}`,
-    `email: ${user.email}`,
-    `firstName: ${user.firstName}`,
-    `lastName: ${user.lastName}`,
-    `Sent at: ${now}`
-  ].join('\n')
-  await sendMail('User deleted', text)
-*/
-
   // Cleanup any data stored in ETVAS Platform
   await etvas.client.clear(purchaseId)
 
