@@ -7,15 +7,15 @@
     "test": "echo \"No tests!\""
   },
   "dependencies": {
-    "@etvas/etvas-sdk": "^1.1.0",
-    "axios": "^0.19.2",
+    "@etvas/etvas-sdk": "^1.2.3",
+    "axios": "^0.21.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
     "env-cmd": "^10.1.0",
     "express": "^4.17.1",
-    "qs": "^6.9.1"
+    "qs": "^6.9.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.2"
+    "nodemon": "^2.0.7"
   }
 }
