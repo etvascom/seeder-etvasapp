@@ -9,6 +9,6 @@
     "bootstrap": "npm install && npm run bootstrap:client && npm run bootstrap:server"
   },
   "devDependencies": {
-    "concurrently": "^5.1.0"
+    "concurrently": "^5.3.0"
   }
 }
