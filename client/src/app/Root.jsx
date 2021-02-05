@@ -23,15 +23,11 @@ const Root = () => {
 
   const authorize = async () => {
     try {
-      const {
-        data: { success }
-      } = await client.get('/validate-token')
-      if (success) {
+      await client.get('/validate-token')
         setAuthorizeData({
           isAuthorized: true,
           loading: false
         })
-      }
     } catch (error) {
       setAuthorizeData({
         isAuthorized: false,
