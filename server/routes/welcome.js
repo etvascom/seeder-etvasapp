@@ -1,4 +1,4 @@
-const pak = require('../../package.json')
+const pak = require('../package.json')
 
 module.exports = {
   method: 'get',
