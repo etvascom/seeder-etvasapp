@@ -20,11 +20,11 @@ jobs:
       - uses: actions/setup-node@v1
 
       - name: Install Etvas CLI
-        run: npm install -g @etvas/etvas-cli
+        run: npm install -g @etvas/etvas-cli@2
 
       #Login with ETVAS_USERNAME & ETVAS_TOKEN env variables
       - name: Login
         run: etvas login
 
       - name: Deploy app
-        run: etvas app deploy -s
+        run: etvas deploy-app -s --live
