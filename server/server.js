@@ -11,6 +11,7 @@ etvas.init({
   apiKey: process.env.ETVAS_API_KEY,
   apiURL: process.env.ETVAS_REST_URI,
   eventSecret: process.env.ETVAS_EVENT_SECRET || 'DEV_PLACEHOLDER',
+  reqSignatureSecret: process.env.ETVAS_REQUEST_SIGNATURE_SECRET,
 })
 
 const app = express()
